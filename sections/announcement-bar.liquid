@@ -1,0 +1,43 @@
+{% for block in section.blocks %}
+  <div style="background-color: {{ block.settings.bg_color }} ; color: {{ block.settings.text_color }}">
+    {{ block.settings.text }}
+  </div>
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "t:sections.announcement-bar.name",
+    "max_blocks": 12,
+    "blocks": [
+      {
+        "type": "announcement",
+        "name": "t:sections.announcement-bar.blocks.announcement.name",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "Welcome to our store",
+            "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+          }, {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#333"
+          }, {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#fff"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  }
+{% endschema %}
